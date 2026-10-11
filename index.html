@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Open in Obsidian</title>
+<style>
+  body { font-family: system-ui, sans-serif; background: #1e1e1e; color: #ddd;
+         display: flex; min-height: 100vh; margin: 0; align-items: center; justify-content: center; }
+  a { color: #a78bfa; font-size: 1.2rem; }
+</style>
+</head>
+<body>
+<p><a id="go" href="#">Open in Obsidian</a></p>
+<script>
+  // Note path travels in the #fragment, which browsers never send to the server.
+  var VAULT = "Obsidian Notes";
+  var file = decodeURIComponent(location.hash.slice(1));
+  if (file) {
+    var url = "obsidian://open?vault=" + encodeURIComponent(VAULT) +
+              "&file=" + encodeURIComponent(file);
+    document.getElementById("go").href = url;
+    location.href = url;
+  }
+</script>
+</body>
+</html>
